@@ -18,8 +18,8 @@ class Robot extends Enemy{
 
 
   void display(){
-    if(currentSpeed>0 || (currentSpeed == 0 && lastCurrentSpeed==a))image(robot,x,y);
-    if(currentSpeed<0 || (currentSpeed == 0 && lastCurrentSpeed==-a)){
+    if(currentSpeed>0 || (currentSpeed == 0 && lastCurrentSpeed>0))image(robot,x,y);
+    if(currentSpeed<0 || (currentSpeed == 0 && lastCurrentSpeed<0)){
     pushMatrix();
     translate(x + w, y);
     scale(-1, 1);
