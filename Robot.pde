@@ -30,12 +30,13 @@ class Robot extends Enemy{
   
   void update(){
     x+=currentSpeed;
-
+    if(currentSpeed>0)lastCurrentSpeed = 2f;
+    else if(currentSpeed<0)lastCurrentSpeed = -2f;
     if(player.y <=y+PLAYER_DETECT_RANGE_ROW*80 && player.y>=y-PLAYER_DETECT_RANGE_ROW*80){
-      if((currentSpeed>0 && player.x>x) || (currentSpeed<0 && player.x<x))
-      if(currentSpeed>0)lastCurrentSpeed = a;
-      if(currentSpeed<0)lastCurrentSpeed = -a;
-      currentSpeed = 0;
+      if((currentSpeed>0 && player.x>x) || (currentSpeed<0 && player.x<x)){
+        currentSpeed = 0;
+        println(lastCurrentSpeed);
+      }
     }
     else{
       if(lastCurrentSpeed>0) currentSpeed=2f;
